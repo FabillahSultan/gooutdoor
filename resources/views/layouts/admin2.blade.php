@@ -1,4 +1,5 @@
 @section('content')
+
     <!DOCTYPE html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -16,7 +17,9 @@
 
         <!-- Custom fonts for this template-->
         <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -27,7 +30,8 @@
         <!-- Page Wrapper -->
         <div id="wrapper">
             <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" id="accordionSidebar">
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"
+                id="accordionSidebar">
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center">
                     <div class="sidebar-brand-icon">
@@ -51,22 +55,22 @@
                 </div>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('produkadmin.index') }}"
-                        aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="{{ route('produkadmin.index') }}" aria-expanded="true"
+                        aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Produk</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('adminstock.index') }}"
-                        aria-expanded="true" aria-controls="collapseUtilities">
+                    <a class="nav-link collapsed" href="{{ route('adminstock.index') }}" aria-expanded="true"
+                        aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-list"></i>
                         <span>Stok</span>
                     </a>
                 </li>
 
-                
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ route('admin.pengajuansewa', ['id_pesanan' => auth()->id()]) }}"
                         aria-expanded="true" aria-controls="collapseUtilities">
@@ -84,15 +88,19 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Pilih Statistik:</h6>
-                            <a class="collapse-item" href="{{ route('admin.statistikpenjualanproduk', ['id_pesanan' => auth()->id()]) }}">Statistik Produk</a>
-                            <a class="collapse-item" href="{{ route('admin.statistikpendapatan', ['id_pesanan' => auth()->id()]) }}">Statistik Pendapatan</a>
+                            <a class="collapse-item"
+                                href="{{ route('admin.statistikpenjualanproduk', ['id_pesanan' => auth()->id()]) }}">Statistik
+                                Produk</a>
+                            <a class="collapse-item"
+                                href="{{ route('admin.statistikpendapatan', ['id_pesanan' => auth()->id()]) }}">Statistik
+                                Pendapatan</a>
                         </div>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="{{ route('adminprofile.index') }}"
-                        aria-expanded="true" aria-controls="collapseUtilities">
+                    <a class="nav-link collapsed" href="{{ route('adminprofile.index') }}" aria-expanded="true"
+                        aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Profil</span>
                     </a>
@@ -156,7 +164,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -165,7 +174,7 @@
                     </nav>
 
                     <div class="container-fluid">
-                    @yield('content') </div>
+                        @yield('content') </div>
                 </div>
 
                 <!-- Footer -->
@@ -218,7 +227,7 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
-        
+
 
         <!-- Page level plugins -->
         <script src="{{ asset('admin/vendor/chart.js/Chart.min.js') }}"></script>

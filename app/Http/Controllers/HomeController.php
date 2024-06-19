@@ -31,22 +31,22 @@ class HomeController extends Controller
     }
 
     public function Produkbyiduser($user_id)
-    {
-        session()->put('selected_store', $user_id);
-        
-        
-        // Mengambil pengguna (user) berdasarkan ID
-        $user = User::find($user_id);
-        
-        // Mengambil produk yang terkait dengan pengguna (user) tersebut
-        $produks = Produk::join('users', 'produks.user_id', '=', 'users.id')
+{
+    session()->put('selected_store', $user_id);
+    
+    // Mengambil pengguna (user) berdasarkan ID
+    $user = User::find($user_id);
+    
+    // Mengambil produk yang terkait dengan pengguna (user) tersebut dan total_stock dari tabel stock
+    $produks = Produk::join('users', 'produks.user_id', '=', 'users.id')
+        ->leftJoin('stocks', 'produks.nama_produk', '=', 'stocks.nama_produk')
         ->where('produks.user_id', $user_id)
-        ->select('produks.*','users.*')
+        ->select('produks.*', 'users.name as user_name', 'stocks.total_stok')
         ->get();
     
-        // Mengembalikan tampilan dengan produk yang ditemukan
-        return view('frontenduser.produk', compact('user', 'produks'));
-    }
+    // Mengembalikan tampilan dengan produk yang ditemukan
+    return view('frontenduser.produk', compact('user', 'produks'));
+}
 
     public function Produkbyiduser1($name_user,$id_user_enkription)
     {
@@ -96,6 +96,16 @@ class HomeController extends Controller
     
         // Kirim data produk yang dipilih ke view
         return view('frontenduser.detailpesanan', compact('produkDipilih'));
+    }
+
+    public function kontak()
+    {
+        return view('frontenduser.kontak');
+    }
+
+    public function tentang()
+    {
+        return view('frontenduser.tentang');
     }
 
  
